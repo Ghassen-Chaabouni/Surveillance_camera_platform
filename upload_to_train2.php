@@ -1,5 +1,4 @@
 <?php
-
   $file = $_FILES['file'];
   $fileName = $_FILES['file']['name'];
 
@@ -39,5 +38,5 @@
     }
   }
 
-header("Location: /enter_exit.php");
+  header("Location: /enter_exit.php");
 ?>
