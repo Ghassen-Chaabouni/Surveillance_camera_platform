@@ -5,5 +5,5 @@ Download resnet50_coco_best_v2.0.1.h5 model and place it inside Surveillance_cam
 
 ### For more informations watch this video.</h3>
 
-[![Surveillance camera platform](http://img.youtube.com/vi/ZxxlywMYHMc/0.jpg)](http://www.youtube.com/watch?v=ZxxlywMYHMc "Surveillance camera platform")
+[![Surveillance camera platform](http://img.youtube.com/vi/ZxxlywMYHMc/0.jpg)](https://www.youtube.com/watch?v=ZxxlywMYHMc "Surveillance camera platform")
 
