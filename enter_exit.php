@@ -99,24 +99,19 @@
     <h3 id="title">Upload a picture</h3>
     <br/>
     <form action="upload_to_train2.php" method="POST" enctype="multipart/form-data">
-            <div><input type="file" name="file[]" accept="image/*" multiple="multiple"></div>
-            <br/>
-<div class="form-group">
-    <select class="form-control" id="name" name="name">
-      <option>enter</option>
-      <option>exit</option>
-    </select>
-  </div>
-
-            <br/>
-            <div><button id="upload" type="submit" name="submit" class="btn btn-outline-dark">Upload</button></div>
-
+        <div><input type="file" name="file[]" accept="image/*" multiple="multiple"></div>
+        <br/>
+        <div class="form-group">
+            <select class="form-control" id="name" name="name">
+                <option>enter</option>
+                <option>exit</option>
+            </select>
+        </div>
+        <br/>
+        <div><button id="upload" type="submit" name="submit" class="btn btn-outline-dark">Upload</button></div>
     </form>
 
-
-
     <a href='start_training_enter_exit.php'><button id="train" class="btn btn-outline-info" name = "train">Start training</button></a>
-
 
     <datalist id="names">
         <option>Chaabouni Ghassen</option>
