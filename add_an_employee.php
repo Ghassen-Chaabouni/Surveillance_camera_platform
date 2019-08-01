@@ -1,4 +1,7 @@
 <style>
+    #delete{
+	margin-left:35%;
+    }
     #train{
         margin-top:-97px;
         margin-left:100px;
@@ -152,7 +155,7 @@
                          echo '<div class="card" id="card" style="width: 18rem;" name="card1">';
                          echo "<a href='$ch' target='_blank'><img class ='card-img-top' src='$ch' name='picture'></a><br>";
                          echo '<div class="card-body" name="card2">';
-                         echo "<a href='delete_pic.php?pic=$ch&id=$row[id]&image=$row[imagename]'><button class='btn btn-outline-danger'>Delete</button></a>";
+                         echo "<a href='delete_pic.php?pic=$ch&id=$row[id]&image=$row[imagename]'><button class='btn btn-outline-danger' id='delete'>Delete</button></a>";
                          echo '</div>';
                          echo '</div>';
 
@@ -185,7 +188,7 @@
                          echo '<div class="card" id="card" style="width: 18rem;" name="card1">';
                          echo "<a href='$ch' target='_blank'><img class ='card-img-top' src='$ch' name='picture'></a><br>";
                          echo '<div class="card-body" name="card2">';
-                         echo "<a href='delete_pic.php?pic=$ch&id=$row[id]&image=$row[imagename]'><button class='btn btn-outline-danger'>Delete</button></a>";
+                         echo "<a href='delete_pic.php?pic=$ch&id=$row[id]&image=$row[imagename]'><button class='btn btn-outline-danger' id='delete'>Delete</button></a>";
                          echo '</div>';
                          echo '</div>';
 
