@@ -1,11 +1,9 @@
 <?php
-include "dbConfig.php";
-
+  include "dbConfig.php";
 
   $file = $_FILES['file'];
   $fileName = $_FILES['file']['name'];
   $name = $_POST['text'];
-
 
   $total = count($fileName);
   for( $i=0 ; $i < $total ; $i++ ) {
@@ -67,5 +65,5 @@ include "dbConfig.php";
     }
   }
 
-header("Location: /add_an_employee.php");
+  header("Location: /add_an_employee.php");
 ?>
