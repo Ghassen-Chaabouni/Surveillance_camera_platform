@@ -302,11 +302,11 @@
 
 
 <div class="content" id="main_content">
-	<div class="container">
+   <div class="container">
       <div align="center" id="main">
 
         <br />
-		<table class="table table-bordered" id="table">
+	<table class="table table-bordered" id="table">
 
         <?php
         $servername = "localhost:3306";
@@ -345,7 +345,7 @@
                 }
                 $row["Name"]=$ch;
 
-		        echo '<tr><td><textarea data-limit-rows="true" rows="1" type="text" name="name" placeholder="Name" style="width:200px;height:150px;" id="name">' . $row["Name"]. '</textarea></td>';
+		echo '<tr><td><textarea data-limit-rows="true" rows="1" type="text" name="name" placeholder="Name" style="width:200px;height:150px;" id="name">' . $row["Name"]. '</textarea></td>';
 
                 echo '<td>';
 
