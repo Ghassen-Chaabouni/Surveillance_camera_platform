@@ -121,17 +121,33 @@ if(total_train>0 and total_val>0):
                                                      target_size=(IMG_SHAPE, IMG_SHAPE),
                                                      class_mode='sparse')   # class_mode='binary' if the model contains only two classes
 
-    feature_extractor = tf.keras.experimental.load_from_saved_model('C:/MAMP/htdocs/saved_models',
-                                                                    custom_objects={'KerasLayer': hub.KerasLayer})
+    L = os.listdir('C:/MAMP/htdocs/saved_models')
+    if (len(L) > 0):
+        feature_extractor = tf.keras.experimental.load_from_saved_model('C:/MAMP/htdocs/saved_models',
+                                                                        custom_objects={'KerasLayer': hub.KerasLayer})
 
-    feature_extractor.build((None, 224, 224, 3))
+        feature_extractor.build((None, 224, 224, 3))
 
-    model = tf.keras.models.Sequential()
-    for layer in feature_extractor.layers[:-1]:
-        model.add(layer)
-    for layer in model.layers:
-        layer.trainable = False
-    model.add(tf.keras.layers.Dense(m, activation='softmax', name="output"))
+        model = tf.keras.models.Sequential()
+        for layer in feature_extractor.layers[:-1]:
+            model.add(layer)
+        for layer in model.layers:
+            layer.trainable = False
+        model.add(tf.keras.layers.Dense(m, activation='softmax', name="output"))
+
+        epochs = 20
+    else:
+        URL = "https://tfhub.dev/google/tf2-preview/mobilenet_v2/feature_vector/2"
+        feature_extractor = hub.KerasLayer(URL,
+                                           input_shape=(224, 224, 3))
+
+        feature_extractor.trainable = False
+
+        model = tf.keras.Sequential([
+            feature_extractor,
+            tf.keras.layers.Dense(m, activation='softmax', name="output")
+        ])
+        epochs = 100
 
     model.summary()
 
