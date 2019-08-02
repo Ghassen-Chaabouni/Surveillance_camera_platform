@@ -159,7 +159,6 @@ if(total_train>0 and total_val>0):
         monitor='val_accuracy', min_delta=0.0001,
         patience=2)
 
-    epochs = 20
     history = model.fit_generator(
         train_data_gen,
         steps_per_epoch=int(np.ceil(total_train / float(BATCH_SIZE))),
