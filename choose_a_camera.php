@@ -80,9 +80,17 @@
 
                 $conn = new mysqli($servername,$username,$password,$databaseName);
 
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
+                if($conn->connect_error!=""){
+                    $conn = new mysqli($servername, $username, $password);
+                    $sql = "CREATE DATABASE `".$databaseName."`";
+                    mysqli_query($conn, $sql);
+                    $conn = new mysqli($servername, $username, $password,$databaseName);
+                    $sql = "CREATE TABLE `camera` (
+                        id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+                        camera_name VARCHAR(10000) NOT NULL,
+                        camera_image VARCHAR(10000) NOT NULL)";
+                    mysqli_query($conn, $sql);
+		}
 
                 $sql = "SELECT * FROM `camera`";
                 $result = $conn->query($sql);
