@@ -165,23 +165,26 @@
                                 echo "<br/>";
                                 $ch="";
                                 $l=1;
-                                $s=0;
-                                while($s<strlen($row[imagename])){
-                                    if((strcmp($row[imagename][$s],"-")==0)){
+                                $s=0;	
+                                while($s<strlen($row['imagename'])){
+                                    if((strcmp($row['imagename'][$s],"-")==0)){
                                         echo '<div class="card" id="card" style="width: 18rem;" name="card1">';
                                         echo "<a href='$ch' target='_blank'><img class ='card-img-top' src='$ch' name='picture'></a><br>";
                                         echo '<div class="card-body" name="card2">';
-                                        echo '<a href="delete_pic.php?pic='.$ch.'&id='.$row[id].'&image='.$row[imagename].'&id2='.$id.'"><button class="btn btn-outline-danger" id="delete">Delete</button></a>';
+                                        echo '<a href="delete_pic.php?pic='.$ch.'&id='.$row['id'].'&image='.$row['imagename'].'&id2='.$id.'"><button class="btn btn-outline-danger" id="delete">Delete</button></a>';
                                         echo '</div>';
                                         echo '</div>';
                                         $ch="";
                                         $s=$s+1;
                                     }
-                                    $ch=$ch.$row[imagename][$s];
+	            		    if($s>=strlen($row['imagename'])){
+					break;
+				    }
+                                    $ch=$ch.$row['imagename'][$s];
                                     $s=$s+1;
                                 }
                                 echo '</td>';
-                                echo '<td><a href="delete_em.php?id='.$row[id].'&name='.$row[name].'&id2='.$id.'"><button class="btn btn-outline-danger">Delete</button></a></td>';
+                                echo '<td><a href="delete_em.php?id='.$row['id'].'&name='.$row['name'].'&id2='.$id.'"><button class="btn btn-outline-danger">Delete</button></a></td>';
                                 echo '</tr>';
 		                    }else{
                                 $ch="";
@@ -190,22 +193,25 @@
                                 echo '<tr><td><type="text" name="name" placeholder="Name" style="width:200px;height:150px;" id="name">' . $row["name"]. '</td>';
                                 echo '<td>';
                                 echo "<br/>";
-                                while($s<strlen($row[imagename])){
-                                    if((strcmp($row[imagename][$s],"-")==0)){
+                                while($s<strlen($row['imagename'])){
+                                    if((strcmp($row['imagename'][$s],"-")==0)){
                                         echo '<div class="card" id="card" style="width: 18rem;" name="card1">';
                                         echo "<a href='$ch' target='_blank'><img class ='card-img-top' src='$ch' name='picture'></a><br>";
                                         echo '<div class="card-body" name="card2">';
-                                        echo '<a href="delete_pic.php?pic='.$ch.'&id='.$row[id].'&image='.$row[imagename].'&id2='.$id.'"><button class="btn btn-outline-danger" id="delete">Delete</button></a>';
+                                        echo '<a href="delete_pic.php?pic='.$ch.'&id='.$row['id'].'&image='.$row['imagename'].'&id2='.$id.'"><button class="btn btn-outline-danger" id="delete">Delete</button></a>';
                                         echo '</div>';
                                         echo '</div>';
                                         $ch="";
                                         $s=$s+1;
                                     }
-                                    $ch=$ch.$row[imagename][$s];
+				    if($s>=strlen($row['imagename'])){
+					break;
+           			    }
+                                    $ch=$ch.$row['imagename'][$s];
                                     $s=$s+1;
                                 }
                                 echo '</td>';
-                                echo '<td><a href="delete_em.php?id='.$row[id].'&name='.$row[name].'&id2='.$id.'"><button class="btn btn-outline-danger">Delete</button></a></td>';
+                                echo '<td><a href="delete_em.php?id='.$row['id'].'&name='.$row['name'].'&id2='.$id.'"><button class="btn btn-outline-danger">Delete</button></a></td>';
                                 echo '</tr>';
 		                    }
 	                    }
@@ -236,4 +242,3 @@
 
 </body>
 </html>
-
